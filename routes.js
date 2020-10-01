@@ -9,10 +9,4 @@ router.get('/login', (req, res ) => {
     res.render('login') 
 })
 
-router.get('*', (req, res) => {
-    res.writeHead(404, {'Content-type': 'text/html'})
-    res.write('<h1>Not Found</h1>')
-    
-})
-
 module.exports = router;
