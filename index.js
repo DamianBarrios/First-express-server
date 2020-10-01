@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res ) => {
-    res.send("Login Page")
+    res.render('login')
 })
 
 app.get('*', (req, res) => {
