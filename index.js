@@ -2,10 +2,14 @@ const express = require('express')
 const morgan = require('morgan')
 const app = express()
 
+app.set('appName', 'First Server');
+app.set('views', __dirname + '/views')
+app.set('view engine', 'ejs');
+
 // morgan 
-app.use(morgan('dev'))
+/* app.use(morgan('dev'))
 app.use(morgan('short'))
-app.use(morgan('combined'))
+app.use(morgan('combined')) */
 
 
 //middlewares
@@ -22,7 +26,7 @@ app.use( (req, res,next) => {
 
 //routes
 app.get('/', (req, res) => {
-    res.send("Hello World")
+    res.render('index.ejs')
 });
 
 app.get('/login', (req, res ) => {
@@ -36,6 +40,7 @@ app.get('*', (req, res) => {
 })
 
 app.listen(3000, () => {
-    console.log("Server on port 3000")
+    console.log("Server on port 3000");
+    console.log('App name: ', app.get('appName'));
 })
 
