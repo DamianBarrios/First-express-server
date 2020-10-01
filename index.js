@@ -1,8 +1,15 @@
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 
+// morgan 
+app.use(morgan('dev'))
+app.use(morgan('short'))
+app.use(morgan('combined'))
+
+
 //middlewares
-app.use(function(req,res, next) {
+/* app.use(function(req,res, next) {
     console.log('request url: ' + req.url);
     next();
 });
@@ -10,7 +17,7 @@ app.use(function(req,res, next) {
 app.use( (req, res,next) => {
     console.log("Function 2");
     next();
-});
+}); */
 
 
 //routes
