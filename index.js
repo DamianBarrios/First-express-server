@@ -1,6 +1,19 @@
 const express = require('express')
 const app = express()
 
+//middlewares
+app.use(function(req,res, next) {
+    console.log('request url: ' + req.url);
+    next();
+});
+
+app.use( (req, res,next) => {
+    console.log("Function 2");
+    next();
+});
+
+
+//routes
 app.get('/', (req, res) => {
     res.send("Hello World")
 });
