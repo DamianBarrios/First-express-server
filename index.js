@@ -19,6 +19,11 @@ app.use(morgan('combined')); */
 //routes
 app.use(routes);
 app.use(routesApi);
+app.get('*', (req, res) => {
+    res.writeHead(404, {'Content-type': 'text/html'})
+    res.write('<h1>Not Found</h1>')
+    
+})
 
 app.listen(3000, () => {
     console.log("Server on port 3000");
